@@ -1,0 +1,198 @@
+    /* ----------------------------------------------------------
+    :: Template Name: Studio - Creative Photography Template
+    :: Author: Colorlib
+    :: Author URL: https://colorlib.com
+    :: Version: 1.0.0
+    :: Created: 31 January 2018
+    :: Last Updated: 31 January 2018
+    ---------------------------------------------------------- */
+
+    /* ============ PLACE YOUR CUSTOM CSS HERE ============ */
+
+    /* ------------------- Preloder--------------------------- */
+
+    #preloder{
+        max-height: 100vh;
+        max-width: 100vw;
+    }
+
+    /* header area */
+    .header-area{
+        width: 100vw;
+        position: fixed;
+    }
+    /* nav bar whatsaap Button  */
+
+    .m-logo{
+        height: 90px;
+        width: 90px;
+    }
+
+
+    .whats{
+        position: relative;
+        left: 85vw;
+        bottom: 20vh;
+    }
+
+    .backgrd{
+        position: fixed;
+        max-height: 100vh !important;
+        z-index: -1;
+    }
+    #cont-1{
+        background-image: url(img/bg-img/1.png);
+        background-size: cover;
+        background-position: center;
+    }
+    .h-90{
+        min-height: 100vh;
+        min-width: 100vw;
+
+    }
+    /* .fixh{
+        position: fixed;
+    } */
+   
+    .frontgrd{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        /* background-color: rgba(8, 104, 194, 0.308); */
+        z-index: 5;
+    }
+
+    .card{
+        border-radius: 0.75rem;
+        background: transparent;
+        backdrop-filter: blur(5px) brightness(80%);
+        color: white;
+        border: 2px solid white;
+        margin-top: 25%;
+    }
+    .form-control{
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+    }
+    .form-control::placeholder{
+        color: white;
+    }
+    .form-control:active{
+        color: white;
+    }
+    .card .m-btn{
+        padding: 9px;
+    }
+
+    /* .image{
+        border: 2px solid red;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    } */
+
+    .image{
+        margin: auto;
+    }
+    .image img{
+        margin: auto;
+        border: 2px solid white;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+
+    .whatsApp{
+        position:fixed;
+        width:60px;
+        height:60px;
+        top:80vh;
+        left:80vw;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        z-index:100;
+    }
+    .my-whatsApp{
+        margin-top:16px;
+    }
+    /*** Service ***/
+.service-item,
+.service-item * {
+    transition: .3s;
+}
+
+.service-item:hover {
+    margin-top: -10px;
+    background: var(--primary) !important;
+}
+
+.service-item:hover * {
+    color: var(--light);
+}
+
+.service-item .service-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .5);
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.service-item:hover .service-overlay {
+    opacity: 1;
+}
+    .footer{
+        position: fixed;
+        right: 0;
+        bottom: 0vh;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        z-index: 1;
+        background-color: #05311b;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    @media (max-width:860px){
+        .card{
+            margin-top: 40%;
+        }
+    }
+
+    @media (max-width:575px) {
+        .card .res-btn{
+            width:35%;
+
+        }
+        .card{
+            margin-top: 25%;
+        }
+        
+    }
+
+    @media (max-width:400px){
+        .card{
+            margin-top: 35%;
+        }
+        .whats-logo{
+            height: 50px;
+            height: 50px;
+        }
+        .link-logo{
+            width: 24px;
+            height: 24px;
+        }
+    }

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>PhotoNest Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../css/core-style.css">
+    <script type="module" src="authCheck.js"></script>
+
+
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+    <style>
+      .side-nav{
+        padding-top: 50px;
+      }
+      .btn-hook{
+        width: 110%;
+      }
+      @media (max-width: 472px) {
+        .btn-hook{
+          justify-content: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .btn-hook{
+
+          width: 95vw;
+          flex-wrap: wrap;
+        }
+        .btn-hook a{
+          margin: 5px;
+        }
+      }
+      
+    </style>
+  
+  </head>
+  <body>
+
+    <div class="container-scroller">
+      <!-- sidebar -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+          <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo-i.png" style="height: 90px; width: 90px;" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="assets/images/logo-i.png" alt="logo" style="height: 40px; width: 40px;"/></a>
+        </div>
+        <ul class="nav side-nav">
+          <li class="nav-item nav-profile">
+            <!-- <a href="#" class="nav-link">
+              <div class="nav-profile-image"> -->
+                <!-- <img src="assets/images/faces/face1.jpg" alt="profile" /> -->
+                <!-- <span class="login-status online"></span> -->
+                <!--change to offline or busy as needed-->
+              <!-- </div>
+              <div class="nav-profile-text d-flex flex-column pr-3">
+                <span class="font-weight-medium mb-2">Henry Klein</span>
+                <span class="font-weight-normal">$8,753.00</span>
+              </div>
+              <span class="badge badge-danger text-white ml-3 rounded">3</span>
+            </a> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashbord.html">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reg-user.html">
+              <i class="mdi mdi-account-plus menu-icon"></i>
+              <span class="menu-title">Add New User</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registered_list.html">
+              <i class="mdi mdi-account menu-icon"></i>
+              <span class="menu-title">Registered User</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="up_map.html" aria-expanded="false" aria-controls="ui-basic">
+              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              <span class="menu-title">Update Location</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="checktoken.html">
+              <i class="mdi mdi-check-all menu-icon"></i>
+              <span class="menu-title">Validate Tokens</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="token_list.html">
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              <span class="menu-title">Tokens List</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+              <span class="menu-title">Charts</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="mdi mdi-table-large menu-icon"></i>
+              <span class="menu-title">Tables</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title">Docs</span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li> -->
+          <li class="nav-item sidebar-actions">
+            <div class="nav-link">
+              <div class="mt-4">
+                <!-- <div class="border-none">
+                  <p class="text-black">Notification</p>
+                </div> -->
+                <ul class="mt-4 pl-0">
+                  <li>Sign Out</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close mdi mdi-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles light"></div>
+            <div class="tiles dark"></div>
+          </div>
+        </div>
+
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none logo-nest" href="dashbord.html"><img src="assets/images/logo-i.png" alt="logo" style="height: 90px; width: 90px;" /></a>
+            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+              <i class="mdi mdi-menu"></i>
+            </button>
+            <ul class="navbar-nav">
+             
+              
+              <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
+                <form class="nav-link form-inline mt-2 mt-md-0">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" />
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-magnify"></i>
+                      </span>
+                    </div>
+                  </div>
+                </form>
+              </li>
+
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+              <li class="nav-item nav-profile dropdown border-0">
+                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <img class="nav-profile-img mr-2" alt="" src="assets/images/faces/face1.jpg" />
+                  <span class="profile-name">User Name</span>
+                </a>
+                <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                </div>
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+
+        <!-- Main Page Starts -->
+
+
+        <div class="main-panel">
+          <div class="content-wrapper pb-0">
+            <div class="page-header flex-wrap">
+              <div class="col-xl-6 col-md-12">
+                <h3 class="mb-0"> Hi, welcome back! <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Your PhotoNest Dashboard is ready to use.</span>
+                </h3>
+              </div>
+              <div class="d-flex justify-content-end col-xl-6 col-md-12 col-xs-12 btn-hook">
+                <!-- <a href="./Tlist.html" class="btn btn-success col-xs-2 ml-3">Token List</a> -->
+
+
+                <a href="./reg-user.html" class="btn ml-3 col-xs-2 btn-success">Add User</a>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 stretch-card grid-margin">
+                <div class="row d-flex">
+                  <div class="col-xl-6 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                    <div class="card bg-warning">
+                      <div class="card-body px-3 py-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                          <div class="color-card">
+                            <p class="mb-0 color-card-head"></p>
+                            <h2 class="text-white">Edit Packages</span>
+                            </h2>
+                          </div>
+                          <i class="card-icon-indicator mdi mdi-pencil bg-inverse-icon-warning"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                    <div class="card bg-danger">
+                      <div class="card-body px-3 py-4">
+                        <a href="Udetail.html" style="text-decoration: none;">
+                        <div class="d-flex justify-content-between align-items-start">
+                          
+                          <div class="color-card">
+                            <p class="mb-0 color-card-head"></p>
+                            <h2 class="text-white">Search/ Edit User</span>
+                            </h2>
+                          </div>
+                          <i class="card-icon-indicator mdi mdi-account-plus bg-inverse-icon-danger"></i>
+                        </div>
+                      </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-xl-3">
+                    <div class="card bg-primary">
+                      <a href="./checktoken.html" style="text-decoration: none;">
+                      <div class="card-body px-3 py-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                          <div class="color-card">
+                            <p class="mb-0 color-card-head"></p>
+                            <h2 class="text-white">Check Token</h2>
+                          </div>
+                          <i class="card-icon-indicator mdi mdi-currency-inr bg-inverse-icon-primary"></i>
+                        </div>
+                      </div>
+                    </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-xl-3">
+                    <div class="card bg-success">
+                      <div class="card-body px-3 py-4">
+                        <a href="registered_list.html" style="text-decoration: none;">
+
+                          <div class="d-flex justify-content-between align-items-start">
+                            <div class="color-card">
+                              <p class="mb-0 color-card-head"></p>
+                              <h2 class="text-white">List User</h2>
+                            </div>
+                            <i class="card-icon-indicator mdi mdi-format-list-bulleted bg-inverse-icon-success"></i>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                    <div class="card bg-warning">
+                      <div class="card-body px-3 py-4">
+                        <a href="./token_list.html" style="text-decoration: none;">
+                          <div class="d-flex justify-content-between align-items-start">
+                            <div class="color-card">
+                              <p class="mb-0 color-card-head"></p>
+                              <h2 class="text-white">Tokens List</span>
+                              </h2>
+                            </div>
+                            <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                    <div class="card bg-danger">
+                      <div class="card-body px-3 py-4">
+                        <a href="Udetail.html" style="text-decoration: none;">
+                        <div class="d-flex justify-content-between align-items-start">
+                          
+                          <div class="color-card">
+                            <p class="mb-0 color-card-head"></p>
+                            <h2 class="text-white">Update Location</span>
+                            </h2>
+                          </div>
+                          <i class="card-icon-indicator mdi mdi-cube-outline bg-inverse-icon-danger"></i>
+                        </div>
+                      </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+
+          <!-- footer -->
+          <footer class="footer">
+            
+          </footer>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!--
+      <script> 
+
+        const varValue = "Session";
+        document.getElementById('s1').textContent = varValue;
+        document.getElementById('s2').textContent = varValue;
+        document.getElementById('s3').textContent = varValue;
+        document.getElementById('s4').textContent = varValue;
+
+
+      </script>
+    -->
+
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.pie.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+
+    
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

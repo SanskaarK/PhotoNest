@@ -24,27 +24,34 @@
     <!-- For Pre Loader -->
     <style>
         .preloader {
-            position: fixed;
-            height: 100vh;
-            width: 100vw;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgb(183, 211, 209);
-        }
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #package-dropdown {
+  color: #333; /* dark gray color */
+}
+#pricing-options {
+  color: #333; /* dark gray color for better readability */
+}
 
-        .loader {
-            position: relative;
-            border: 8px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 8px solid #3498db;
-            width: 80px;
-            height: 80px;
-            -webkit-animation: spin 2s linear infinite;
-            /* Safari */
-            animation: spin 2s linear infinite;
-        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -55,100 +62,125 @@
 
 <body>
 
-    <section class="preloader" id="canvas">
-        <div class="pre-main">
-            <div class="loader"></div>
-        </div>
-    </section>
+    <!-- Preloader -->
+<section class="preloader" id="canvas">
+    <div class="pre-main">
+        <div class="loader"></div>
+    </div>
+</section>
 
-    <script>
-        setTimeout(() => {
-            $("#canvas").hide();
-        }, 2500);
-    </script>
+<div class="container-scroller">
+    <!-- Main Page Starts -->
+    <div class="main-panel">
+        <div class="content-wrapper pb-0">
 
-    <div class="container-scroller">
-        <!-- Main Page Starts -->
-
-        <div class="main-panel">
-            <div class="content-wrapper pb-0">
-
-                <div class="page-header flex-wrap">
-                    <div class="d-flex">
-                        <!-- <button type="button" class="btn btn-sm bg-white btn-icon-text border">
-                    <i class="mdi mdi-email btn-icon-prepend" ></i> Email </button> -->
-                        <a href="../Admin/dashbord.html" class="btn btn-sm ml-3 btn-success">Dashboard</a>
-                    </div>
+            <!-- Page Header -->
+            <div class="page-header flex-wrap">
+                <div class="d-flex">
+                    <a href="../Admin/dashbord.html" class="btn btn-sm ml-3 btn-success">Dashboard</a>
                 </div>
-
-                <div class="row pb-5">
-                    <div class="row col-xl-12 col-lg-12 ml-5">
-                        <div class="col-lg-4">
-                            <h3>
-                                Select Package:
-                            </h3>
-                        </div>
-                        <div class="col-lg-6">
-                            <select name="pack" class="form-control" id="">
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 stretch-card grid-margin flex-wrap">
-                        <div class="row d-flex col-lg-6 col-sm-12" style="max-height: fit-content;">
-                            <div class="col-xl-12 col-md-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
-                                <div class="card bg-warning">
-                                    <a href="pricing.html?id=op1" style="text-decoration: none;">
-                                        <div class="card-body px-3 py-4">
-                                            <div class="d-flex justify-content-between align-items-start">
-                                                <div class="color-card">
-                                                    <p class="mb-0 color-card-head" id="s1"></p>
-                                                    <h2 class="text-white" id="op1">Solo Portrait</span>
-                                                    </h2>
-                                                </div>
-                                                <i
-                                                    class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
-                                            </div>
-                                            <h6 class="text-white" id="d1">Your essence, captured in every detail. A
-                                                timeless representation of your individuality.</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="container bg-light mb-3 p-3">
-                                <div class="cont-head">
-                                    <h2 class="text-center">Update Package Details</h2>
-                                </div>
-                                <div class="cont-main">
-                                    <form id="update-form" method="post">
-                                        <div class="form-group">
-                                            <label for="package-name">Package Name:</label>
-                                            <input type="text" class="form-control" id="package-name"
-                                                name="package-name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="package-desc">Package Description:</label>
-                                            <textarea class="form-control" id="package-desc" name="package-desc"
-                                                required></textarea>
-                                        </div>
-                                        <div class="form-group ">
-                                            <button type="submit" class="btn btn-primary">Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Package Selection -->
+            <div class="row pb-5">
+                <div class="row col-xl-12 col-lg-12 ml-0">
+                    <div class="col-lg-6">
+                        <h3>Select Package:</h3>
+                    </div>
+                    <div class="col-lg-6">
+                        <select name="pack" class="form-control" id="package-dropdown">
+                            <option value=""  selected>Select a package</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Package Update Section -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 stretch-card grid-margin flex-wrap">
+
+                    <!-- Pricing Preview Card -->
+                    <div class="row d-flex col-lg-6 col-sm-12" style="max-height: fit-content;">
+                        <div class="col-xl-12 col-md-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                            <div class="card bg-warning">
+                                <a href="pricing.html?id=op1" style="text-decoration: none;">
+                                    <div class="card-body px-3 py-4">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="color-card">
+                                                <p class="mb-0 color-card-head" id="s1"></p>
+                                                <h2 class="text-white" id="op1">Solo Portrait</h2>
+                                            </div>
+                                            <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
+                                        </div>
+                                        <h6 class="text-white" id="d1">
+                                            Your essence, captured in every detail. A timeless representation of your individuality.
+                                        </h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Update Package Details Section -->
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="container bg-light mb-3 p-3">
+                            <div class="cont-head">
+                                <h2 class="text-center">Update Package Details</h2>
+                            </div>
+
+                            <div class="cont-main">
+                                <form id="update-form" method="">
+
+                                     <!-- Package Details Update -->
+                                     <div class="form-group">
+                                        <label for="package-name">Package Name:</label>
+                                        <input type="text" class="form-control" id="package-name" name="package-name" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="package-desc">Package Description:</label>
+                                        <textarea class="form-control" id="package-desc" name="package-desc" required></textarea>
+                                    </div>
+
+                                    <!-- Update Package Button -->
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Update Package</button>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Pricing Selection -->
+                                    <div class="form-group">
+                                        <label for="pricing-options">Select Pricing Option:</label>
+                                        <select id="pricing-options" class="form-control">
+                                            <option value="" disabled selected>Select a pricing option</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Pricing Update Fields -->
+                                    <div class="form-group">
+                                        <label for="pricing-desc">Pricing Description:</label>
+                                        <input type="text" class="form-control" id="pricing-desc" placeholder="Enter description" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pricing-price">Price (Rs):</label>
+                                        <input type="number" class="form-control" id="pricing-price" placeholder="Enter price" required>
+                                    </div>
+
+                                    <!-- Update Pricing Button -->
+                                    <button id="update-pricing-btn" type="button" class="btn btn-primary">Update Pricing</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- End of Update Section -->
+
+                </div> <!-- End of Row -->
+            </div> <!-- End of Content Wrapper -->
+        </div> <!-- End of Main Panel -->
+    </div> <!-- End of Container Scroller -->
+</div>
+
 
             <!-- footer -->
             <footer class="footer">
@@ -161,6 +193,208 @@
     </div>
     <!-- container-scroller -->
 
+    <script type="module">
+        import { db, doc, getDoc, updateDoc, collection, getDocs } from "../firebase_js/firebase_init.js";
+    
+        // HTML Elements
+        const packageDropdown = document.getElementById("package-dropdown");
+        const pricingDropdown = document.getElementById("pricing-options");
+        const pricingDescInput = document.getElementById("pricing-desc");
+        const pricingPriceInput = document.getElementById("pricing-price");
+        const updatePricingBtn = document.getElementById("update-pricing-btn");
+        const pricingPreview = document.getElementById("pricing-preview");
+        const packageNameInput = document.getElementById("package-name");
+        const packageDescInput = document.getElementById("package-desc");
+        const updateForm = document.getElementById("update-form");
+    
+        const previewTitle = document.getElementById("op1");
+        const previewDesc = document.getElementById("d1");
+    
+        let offerings = {}; // Store package data
+        let selectedPackage = null; // Store the currently selected package
+    
+        // Load Packages from Firestore
+        async function loadPackages() {
+            const packagesCollection = collection(db, "offerings");
+            const snapshot = await getDocs(packagesCollection);
+            
+            if (!snapshot.empty) {
+                snapshot.forEach((doc) => {
+                    offerings[doc.id] = doc.data();
+                });
+                populateDropdown();
+            } else {
+                console.log("No package data found!");
+            }
+        }
+    
+            // Populate Package Dropdown
+            function populateDropdown() {
+            packageDropdown.innerHTML = "";
+
+            Object.keys(offerings).forEach((key, index) => {
+                const option = document.createElement("option");
+                option.value = key;
+                option.textContent = offerings[key].title;
+                
+                // Set the first option as selected by default
+                if (index === 0) option.selected = true;
+
+                packageDropdown.appendChild(option);
+            });
+
+            // Automatically load the first package by default
+            if (Object.keys(offerings).length > 0) {
+                updateFormFields(packageDropdown.value);
+            }
+        }
+
+    
+        // Update Form Fields When Package is Selected
+        function updateFormFields(selectedKey) {
+            if (!offerings[selectedKey]) return;
+    
+            selectedPackage = offerings[selectedKey];
+    
+            packageNameInput.value = selectedPackage.title;
+            packageDescInput.value = selectedPackage.Description;
+            previewTitle.textContent = selectedPackage.title;
+            previewDesc.textContent = selectedPackage.Description;
+    
+            populatePricingDropdown();
+            updatePricingPreview();
+        }
+    
+        // Populate Pricing Dropdown
+            function populatePricingDropdown() {
+            pricingDropdown.innerHTML = `<option value="" disabled>Select a pricing option</option>`;
+
+            if (selectedPackage && selectedPackage.pricing) {
+                selectedPackage.pricing.forEach((item, index) => {
+                    const option = document.createElement("option");
+                    option.value = index;
+                    option.textContent = `${item.description} - Rs ${item.price}`;
+
+                    // Set the first option as selected by default
+                    if (index === 0) option.selected = true;
+
+                    pricingDropdown.appendChild(option);
+                });
+
+                // Automatically load the first pricing option by default
+                if (selectedPackage.pricing.length > 0) {
+                    pricingDropdown.dispatchEvent(new Event("change"));
+                }
+            }
+        }
+
+    
+        // Update Pricing Preview
+        function updatePricingPreview() {
+            pricingPreview.innerHTML = "";
+            if (!selectedPackage || !selectedPackage.pricing) return;
+    
+            selectedPackage.pricing.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = `${item.description}: Rs ${item.price}`;
+                pricingPreview.appendChild(li);
+            });
+        }
+    
+        // Handle Pricing Dropdown Change
+        pricingDropdown.addEventListener("change", function () {
+            const selectedIndex = this.value;
+            if (selectedIndex !== "") {
+                pricingDescInput.value = selectedPackage.pricing[selectedIndex].description;
+                pricingPriceInput.value = selectedPackage.pricing[selectedIndex].price;
+            }
+        });
+    
+        // Handle Pricing Update
+        updatePricingBtn.addEventListener("click", async function () {
+            const selectedIndex = pricingDropdown.value;
+            if (selectedIndex === "") {
+                alert("Please select a pricing option to update.");
+                return;
+            }
+    
+            const newDesc = pricingDescInput.value.trim();
+            const newPrice = parseFloat(pricingPriceInput.value.trim());
+    
+            if (!newDesc || isNaN(newPrice) || newPrice <= 0) {
+                alert("Please enter valid pricing details.");
+                return;
+            }
+    
+            // Update the selected pricing option in local data
+            selectedPackage.pricing[selectedIndex].description = newDesc;
+            selectedPackage.pricing[selectedIndex].price = newPrice;
+    
+            // Update Firestore
+            const packageRef = doc(db, `offerings/${packageDropdown.value}`);
+            await updateDoc(packageRef, { pricing: selectedPackage.pricing });
+    
+            alert("Pricing updated successfully!");
+    
+            // Refresh dropdown and preview
+            populatePricingDropdown();
+            updatePricingPreview();
+        });
+    
+        // Display Pricing Fields Dynamically for Editing
+        function displayPricingFields(pricing) {
+            pricingContainer.innerHTML = "";
+            pricing.forEach((item, index) => {
+                const div = document.createElement("div");
+                div.classList.add("form-group");
+    
+                div.innerHTML = `
+                    <label>Pricing Option ${index + 1}:</label>
+                    <input type="text" class="form-control price-desc" placeholder="Description" value="${item.description}" required>
+                    <input type="number" class="form-control price-value" placeholder="Price" value="${item.price}" required>
+                `;
+                pricingContainer.appendChild(div);
+            });
+        }
+    
+        // Handle Package Update
+        updateForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+    
+            const selectedPackage = packageDropdown.value;
+            const packageName = packageNameInput.value.trim();
+            const packageDesc = packageDescInput.value.trim();
+    
+            if (!packageName || !packageDesc) {
+                alert("Please fill in all fields.");
+                return;
+            }
+    
+    
+            // Update Firestore
+            const packageRef = doc(db, `offerings/${selectedPackage}`);
+            await updateDoc(packageRef, {
+                title: packageName,
+                Description: packageDesc,
+            });
+    
+            alert("Package updated successfully!");
+            loadPackages();
+        });
+    
+        // Listen for Package Dropdown Change
+        packageDropdown.addEventListener("change", () => {
+            updateFormFields(packageDropdown.value);
+        });
+    
+        // Load Packages When Page Loads
+        window.onload = function () {
+            loadPackages();
+            document.getElementById("canvas").style.display = "none";
+        };
+    </script>
+    
+    
 
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
